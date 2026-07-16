@@ -11,6 +11,23 @@ const modalCounter = document.getElementById('modal-counter');
 let currentProject = null;
 let currentImageIndex = 0;
 
+function updateImage() {
+  const img = currentProject.images[currentImageIndex];
+
+  if (img.src) {
+    modalImage.src = img.src;
+    modalImage.alt = img.caption;
+    modalImage.classList.remove('hidden');
+    modalImagePlaceholder.classList.add('hidden');
+  } else {
+    modalImagePlaceholder.textContent = img.placeholder;
+    modalImagePlaceholder.classList.remove('hidden');
+    modalImage.classList.add('hidden');
+  }
+  modalCaption.textContent = img.caption;
+  modalCounter.textContent = `${currentImageIndex + 1} / ${currentProject.images.length}`;
+}
+
 menuToggle.addEventListener('click', () => {
   const menuHidden = menu.classList.toggle('hidden');
   if (menuHidden) {
@@ -40,20 +57,23 @@ const modalOpen = document.querySelectorAll('[open-modal]');
 modalOpen.forEach((btn) => {
   btn.addEventListener('click', () => {
     const projectKey = btn.getAttribute('open-modal');
-    const project = projectsData[projectKey];
+    currentProject = projectsData[projectKey];
+    currentImageIndex = 0;
 
-    modalCategory.textContent = project.category;
-    modalTitle.textContent = project.title;
-    modalDescription.textContent = project.description;
-    modalGithub.href = project.github;
+    modalCategory.textContent = currentProject.category;
+    modalTitle.textContent = currentProject.title;
+    modalDescription.textContent = currentProject.description;
+    modalGithub.href = currentProject.github;
     modalTags.innerHTML = '';
-    project.tags.forEach((tag) => {
+    currentProject.tags.forEach((tag) => {
       const span = document.createElement('span');
       span.className =
         'px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70';
       span.textContent = tag;
       modalTags.appendChild(span);
     });
+
+    updateImage();
 
     modal.classList.remove('hidden');
   });

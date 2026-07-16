@@ -28,11 +28,15 @@ const projectsData = {
       'API sécurisée de notation de livres : authentification JWT, opérations CRUD complètes et modélisation MongoDB.',
     images: [
       {
-        placeholder: 'Capture Grimoire 1/2 — à ajouter',
+        src: './images/grimoire-img-1.png',
         caption: "Page d'accueil : liste des livres avec filtres.",
       },
       {
-        placeholder: 'Capture Grimoire 2/2 — à ajouter',
+        src: './images/grimoire-img-2.png',
+        caption: "Détail d'un livre avec notation et commentaires.",
+      },
+      {
+        src: './images/grimoire-img-3.png',
         caption: "Détail d'un livre avec notation et commentaires.",
       },
     ],
