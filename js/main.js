@@ -10,6 +10,14 @@ const modalCounter = document.getElementById('modal-counter');
 
 let currentProject = null;
 let currentImageIndex = 0;
+let lastFocusedElement = null;
+
+function closeModal() {
+  modal.classList.add('hidden');
+  if (lastFocusedElement) {
+    lastFocusedElement.focus();
+  }
+}
 
 function updateImage() {
   const img = currentProject.images[currentImageIndex];
@@ -74,6 +82,26 @@ const modalCategory = document.getElementById('modal-category');
 const modalTitle = document.getElementById('modal-title');
 const modalDescription = document.getElementById('modal-description');
 const modalGithub = document.getElementById('modal-github');
+const focusableElements = modal.querySelectorAll('button, [href]');
+
+const firstFocusableElement = focusableElements[0];
+const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+
+  if (e.key === 'Tab') {
+    if (e.shiftKey && document.activeElement === firstFocusableElement) {
+      e.preventDefault();
+      lastFocusableElement.focus();
+    } else if (!e.shiftKey && document.activeElement === lastFocusableElement) {
+      e.preventDefault();
+      firstFocusableElement.focus();
+    }
+  }
+});
 
 const modalOpen = document.querySelectorAll('[open-modal]');
 modalOpen.forEach((btn) => {
@@ -81,6 +109,7 @@ modalOpen.forEach((btn) => {
     const projectKey = btn.getAttribute('open-modal');
     currentProject = projectsData[projectKey];
     currentImageIndex = 0;
+    lastFocusedElement = btn;
 
     modalCategory.textContent = currentProject.category;
     modalTitle.textContent = currentProject.title;
@@ -98,19 +127,14 @@ modalOpen.forEach((btn) => {
     updateImage();
 
     modal.classList.remove('hidden');
+    modalClose.focus();
   });
 });
 
 modalClose.addEventListener('click', () => {
-  modal.classList.add('hidden');
+  closeModal();
 });
 
 modalBackdrop.addEventListener('click', () => {
-  modal.classList.add('hidden');
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    modal.classList.add('hidden');
-  }
+  closeModal();
 });
