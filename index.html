@@ -1,239 +1,418 @@
-<!DOCTYPE html>
-<html lang="fr" class='scroll-smooth'>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ludovic Cazade — Développeur Front-End React à Toulouse</title>
-  <meta name="description" content="Portfolio de Ludovic Cazade, développeur web et web mobile. Découvrez mes projets et compétences en développement web.">
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ludovic Cazade — Développeur Front-End React à Toulouse</title>
+    <meta
+      name="description"
+      content="Portfolio de Ludovic Cazade, développeur web et web mobile. Découvrez mes projets et compétences en développement web."
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
-  <script defer src="js/data.js"></script>
-  <script defer src="js/main.js"></script> 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-   tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            bg: '#0E0E13',
-            card: '#17171F',
-            border: '#2A2A36',
-            accent: '#34D399',
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    /></noscript>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({ publicKey: 'QDpxkPOqL-RM0qVEY' });
+      })();
+    </script>
+    <script defer src="js/data.js"></script>
+    <script defer src="js/main.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bg: '#0E0E13',
+              card: '#17171F',
+              border: '#2A2A36',
+              accent: '#34D399',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
           },
         },
-      },
-    }
+      };
     </script>
- 
 
-  <link rel="icon" href="public/logo.png" type="image/x-icon">
-</head>
-<body class="bg-bg text-white font-sans">
-<!-- En-tête -->
-  <header class="sticky top-0 z-50 bg-bg/95 backdrop-blur border-b border-border">
-    <nav class="relative max-w-6xl mx-auto flex items-center justify-between px-6 py-4" aria-label="Navigation principale">
-      <a href="#hero" class="text-lg font-semibold text-white">Ludovic Cazade</a>
+    <link rel="icon" href="public/logo.png" type="image/x-icon" />
+  </head>
+  <body class="bg-bg text-white font-sans">
+    <!-- En-tête -->
+    <header
+      class="sticky top-0 z-50 bg-bg/95 backdrop-blur border-b border-border"
+    >
+      <nav
+        class="relative max-w-6xl mx-auto flex items-center justify-between px-6 py-4"
+        aria-label="Navigation principale"
+      >
+        <a href="#hero" class="text-lg font-semibold text-white"
+          >Ludovic Cazade</a
+        >
 
-      <button id="menu-toggle" class="md:hidden text-white" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
+        <button
+          id="menu-toggle"
+          class="md:hidden text-white"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+          aria-controls="menu"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
 
-      <ul id="menu" class="hidden md:flex flex-col md:flex-row md:items-center text-center gap-6 md:gap-8 absolute md:static top-full inset-x-0 md:inset-auto bg-bg md:bg-transparent border-b md:border-0 border-border px-6 md:px-0 py-6 md:py-0 text-sm text-white/70">
-        <li><a href="#apropos" class="hover:text-accent block py-2">À propos</a></li>
-        <li><a href="#projets" class="hover:text-accent block py-2">Projets</a></li>
-        <li><a href="#competences" class="hover:text-accent block py-2">Compétences</a></li>
-        <li><a href="#perspectives" class="hover:text-accent block py-2">Perspectives</a></li>
-        <li>
-          <a href="#contact" class="inline-block border border-accent text-accent text-xs font-semibold px-4 py-2 rounded-full hover:bg-accent hover:text-bg mt-2">Me contacter</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <!-- Fin en-tête -->
+        <ul
+          id="menu"
+          class="hidden md:flex flex-col md:flex-row md:items-center text-center gap-6 md:gap-8 absolute md:static top-full inset-x-0 md:inset-auto bg-bg md:bg-transparent border-b md:border-0 border-border px-6 md:px-0 py-6 md:py-0 text-sm text-white/70"
+        >
+          <li>
+            <a href="#apropos" class="hover:text-accent block py-2">À propos</a>
+          </li>
+          <li>
+            <a href="#projets" class="hover:text-accent block py-2">Projets</a>
+          </li>
+          <li>
+            <a href="#competences" class="hover:text-accent block py-2"
+              >Compétences</a
+            >
+          </li>
+          <li>
+            <a href="#perspectives" class="hover:text-accent block py-2"
+              >Perspectives</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="inline-block border border-accent text-accent text-xs font-semibold px-4 py-2 rounded-full hover:bg-accent hover:text-bg mt-2 md:mt-0"
+              >Me contacter</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Fin en-tête -->
     <main>
       <!-- Intro -->
-      <section id="hero" class="min-h-[85vh] flex flex-col items-center justify-center text-center px-6">
-      <span class="inline-flex items-center gap-2 text-xs text-accent border border-accent/30 bg-accent/10 rounded-full px-4 py-1.5 mb-6">
-        <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
-        Ouvert aux opportunités
-      </span>
-      <h1 class="text-4xl md:text-6xl font-bold text-white mb-2">Ludovic Cazade.</h1>
-      <p class="text-3xl md:text-5xl font-bold text-white/40 mb-6">Développeur Front-End</p>
-       <p class="text-lg text-white/70 max-w-2xl mb-8">
-        Je conçois et développe des interfaces web modernes et accessibles. Passionné par le détail et l'expérience utilisateur.
-      </p>
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="#projets" class="inline-block bg-accent text-bg font-semibold px-6 py-3 rounded-full hover:opacity-90 transition-opacity">
-          Voir mes projets
-        </a>
-        <a href="#contact" class="inline-block border border-white/20 text-white font-semibold px-6 py-3 rounded-full hover:border-accent transition-colors">
-          Me contacter
-        </a>
-      </div>
+      <section
+        id="hero"
+        class="min-h-[85vh] flex flex-col items-center justify-center text-center px-6"
+      >
+        <span
+          class="inline-flex items-center gap-2 text-xs text-accent border border-accent/30 bg-accent/10 rounded-full px-4 py-1.5 mb-6"
+        >
+          <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+          Ouvert aux opportunités
+        </span>
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-2">
+          Ludovic Cazade.
+        </h1>
+        <p class="text-3xl md:text-5xl font-bold text-white/40 mb-6">
+          Développeur Front-End
+        </p>
+        <p class="text-lg text-white/70 max-w-2xl mb-8">
+          Je conçois et développe des interfaces web modernes et accessibles.
+          Passionné par le détail et l'expérience utilisateur.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="#projets"
+            class="inline-block bg-accent text-bg font-semibold px-6 py-3 rounded-full hover:opacity-90 transition-opacity"
+          >
+            Voir mes projets
+          </a>
+          <a
+            href="#contact"
+            class="inline-block border border-white/20 text-white font-semibold px-6 py-3 rounded-full hover:border-accent transition-colors"
+          >
+            Me contacter
+          </a>
+        </div>
       </section>
       <!-- Fin intro -->
-       <!-- Début section "À propos" -->
+      <!-- Début section "À propos" -->
       <section id="apropos" class="max-w-5xl mx-auto px-6 py-20">
-      <div class="flex items-center gap-4 mb-10">
-        <div>
-          <p class="text-xs font-semibold text-accent uppercase mb-2">01 — À propos</p>
-          <h2 class="text-2xl md:text-3xl font-bold text-white">Pour en savoir plus sur moi.</h2>
-        </div>
-      </div>
-      <div class="grid md:grid-cols-2 gap-10 items-start">
-        <p class="text-white/70 leading-relaxed">
-          Développeur Front-End basé à Toulouse, j'ai toujours été passionné par la technologie et le design. Après avoir passé plusieurs années dans la restauration, j'ai décidé de reprendre mes études avec OpenClassrooms. Lors de mon apprentissage, j'ai découvert un réel attrait pour le développement web, plus particulièrement le front-end. Je m'intéresse fortement à l'expérience utilisateur, et j'apporte une attention particulière aux détails d'un projet.    
-      </p>
-      <div class="grid grid-cols-2 gap-4">
-          <div class="bg-card border border-border rounded-xl p-5">
-            <p class="text-2xl font-bold text-accent">7</p>
-            <p class="text-xs text-white/60 mt-1">Projets effectués</p>
-          </div>
-          <div class="bg-card border border-border rounded-xl p-5">
-            <p class="text-2xl font-bold text-accent">11</p>
-            <p class="text-xs text-white/60 mt-1">Technologies maîtrisées</p>
-          </div>
-          <div class="bg-card border border-border rounded-xl p-5">
-            <p class="text-2xl font-bold text-accent">100%</p>
-            <p class="text-xs text-white/60 mt-1">D'autonomie</p>
-          </div>
-          <div class="bg-card border border-border rounded-xl p-5">
-            <p class="text-2xl font-bold text-accent">∞</p>
-            <p class="text-xs text-white/60 mt-1">Curiosité</p>
+        <div class="flex items-center gap-4 mb-10">
+          <div>
+            <p class="text-xs font-semibold text-accent uppercase mb-2">
+              01 — À propos
+            </p>
+            <h2 class="text-2xl md:text-3xl font-bold text-white">
+              Pour en savoir plus sur moi.
+            </h2>
           </div>
         </div>
-      </div>
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+          <p class="text-white/70 leading-relaxed">
+            Développeur Front-End basé à Toulouse, j'ai toujours été passionné
+            par la technologie et le design. Après avoir passé plusieurs années
+            dans la restauration, j'ai décidé de reprendre mes études avec
+            OpenClassrooms. Lors de mon apprentissage, j'ai découvert un réel
+            attrait pour le développement web, plus particulièrement le
+            front-end. Je m'intéresse fortement à l'expérience utilisateur, et
+            j'apporte une attention particulière aux détails d'un projet.
+          </p>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-card border border-border rounded-xl p-5">
+              <p class="text-2xl font-bold text-accent">7</p>
+              <p class="text-xs text-white/60 mt-1">Projets effectués</p>
+            </div>
+            <div class="bg-card border border-border rounded-xl p-5">
+              <p class="text-2xl font-bold text-accent">11</p>
+              <p class="text-xs text-white/60 mt-1">Technologies maîtrisées</p>
+            </div>
+            <div class="bg-card border border-border rounded-xl p-5">
+              <p class="text-2xl font-bold text-accent">100%</p>
+              <p class="text-xs text-white/60 mt-1">D'autonomie</p>
+            </div>
+            <div class="bg-card border border-border rounded-xl p-5">
+              <p class="text-2xl font-bold text-accent">∞</p>
+              <p class="text-xs text-white/60 mt-1">Curiosité</p>
+            </div>
+          </div>
+        </div>
       </section>
       <section id="projets" class="max-w-5xl mx-auto px-6 py-20">
-      <div class="flex flex-wrap items-center gap-10 mb-10">
-        <div>
-          <!-- Fin section "À propos"  -->
-           <!-- Début section "Projets"  -->
-          <p class="text-xs font-semibold text-accent uppercase mb-2">02 — Projets</p>
-          <h2 class="text-2xl md:text-3xl font-bold text-white">Mes deux projets phares.</h2>
+        <div class="flex flex-wrap items-center gap-10 mb-10">
+          <div>
+            <!-- Fin section "À propos"  -->
+            <!-- Début section "Projets"  -->
+            <p class="text-xs font-semibold text-accent uppercase mb-2">
+              02 — Projets
+            </p>
+            <h2 class="text-2xl md:text-3xl font-bold text-white">
+              Mes deux projets phares.
+            </h2>
+          </div>
         </div>
         <div class="grid md:grid-cols-2 gap-6">
-        <article class="bg-card border border-border rounded-2xl p-6 flex flex-col">
-          <div class="flex items-center justify-between mb-4">
-            <p class="text-xs text-white/50">01 — Application web</p>
-            <span class="w-2 h-2 rounded-full bg-accent"></span>
+          <article
+            class="bg-card border border-border rounded-2xl p-6 flex flex-col"
+          >
+            <div class="flex items-center justify-between mb-4">
+              <p class="text-xs text-white/50">01 — Application web</p>
+              <span class="w-2 h-2 rounded-full bg-accent"></span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Kasa</h3>
+            <p class="text-sm text-white/70 mb-4 flex-1">
+              Plateforme de location d'appartements entre particuliers,
+              développée en React avec routage dynamique et galerie photo
+              interactive.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span
+                class="px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70"
+                >React</span
+              >
+              <span
+                class="px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70"
+                >React Router</span
+              >
+              <span
+                class="px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70"
+                >Sass</span
+              >
+              <span
+                class="px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70"
+                >Vite</span
+              >
+            </div>
+            <div class="flex gap-3">
+              <button
+                open-modal="kasa"
+                class="bg-accent text-bg font-semibold text-sm px-4 py-2 rounded-full hover:opacity-90 transition-opacity"
+              >
+                Description
+              </button>
+              <a
+                href="https://github.com/LudoCzd/Projet_5"
+                target="_blank"
+                rel="noopener"
+                class="border border-white/20 text-white text-sm font-semibold px-4 py-2 rounded-full hover:border-accent transition-colors"
+                >GitHub</a
+              >
+            </div>
+          </article>
+          <article
+            class="bg-card border border-border rounded-2xl p-6 flex flex-col"
+          >
+            <div class="flex items-center justify-between mb-4">
+              <p class="text-xs text-white/50">02 — API back-end</p>
+              <span class="w-2 h-2 rounded-full bg-accent"></span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">
+              Mon Vieux Grimoire
+            </h3>
+            <p class="text-sm text-white/70 mb-4 flex-1">
+              API sécurisée de notation de livres : authentification JWT,
+              opérations CRUD complètes et modélisation MongoDB.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span
+                class="px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70"
+                >Node.js</span
+              >
+              <span
+                class="px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70"
+                >Express</span
+              >
+              <span
+                class="px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70"
+                >MongoDB</span
+              >
+              <span
+                class="px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70"
+                >JWT</span
+              >
+            </div>
+            <div class="flex gap-3">
+              <button
+                open-modal="grimoire"
+                class="bg-accent text-bg font-semibold text-sm px-4 py-2 rounded-full hover:opacity-90 transition-opacity"
+              >
+                Description
+              </button>
+              <a
+                href="https://github.com/LudoCzd/Projet_6"
+                target="_blank"
+                rel="noopener"
+                class="border border-white/20 text-white text-sm font-semibold px-4 py-2 rounded-full hover:border-accent transition-colors"
+                >GitHub</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+      <section id="competences" class="max-w-5xl mx-auto px-6 py-20">
+        <div class="flex items-center gap-4 mb-10">
+          <div>
+            <!-- Fin section "Projets"   -->
+            <!-- Début section "Compétences" -->
+            <p
+              class="text-xs font-semibold text-accent uppercase tracking-wide mb-2"
+            >
+              03 — Compétences
+            </p>
+            <h2 class="text-2xl md:text-3xl font-bold text-white">
+              Les compétences que je maitrise.
+            </h2>
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">Kasa</h3>
-          <p class="text-sm text-white/70 mb-4 flex-1">
-            Plateforme de location d'appartements entre particuliers, développée en React avec routage dynamique et galerie photo interactive.
+        </div>
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
+          <div class="bg-card border border-border rounded-xl p-5">
+            <h3 class="text-sm font-semibold text-accent mb-3">Langages</h3>
+            <ul class="text-sm text-white/70 space-y-1.5">
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript</li>
+            </ul>
+          </div>
+          <div class="bg-card border border-border rounded-xl p-5">
+            <h3 class="text-sm font-semibold text-accent mb-3">Frameworks</h3>
+            <ul class="text-sm text-white/70 space-y-1.5">
+              <li>React</li>
+              <li>React Router</li>
+              <li>Sass</li>
+              <li>Tailwind CSS</li>
+            </ul>
+          </div>
+          <div class="bg-card border border-border rounded-xl p-5">
+            <h3 class="text-sm font-semibold text-accent mb-3">Backend</h3>
+            <ul class="text-sm text-white/70 space-y-1.5">
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>MongoDB</li>
+            </ul>
+          </div>
+          <div class="bg-card border border-border rounded-xl p-5">
+            <h3 class="text-sm font-semibold text-accent mb-3">Outils</h3>
+            <ul class="text-sm text-white/70 space-y-1.5">
+              <li>Git</li>
+              <li>GitHub</li>
+              <li>Figma</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- Fin section "Compétences"  -->
+      <!-- Début section "Perspectives" -->
+      <section id="perspectives" class="max-w-5xl mx-auto px-6 py-20">
+        <div class="flex items-center gap-4 mb-10">
+          <div>
+            <p class="text-xs font-semibold text-accent uppercase mb-2">
+              04 — Perspectives
+            </p>
+            <h2 class="text-2xl md:text-3xl font-bold text-white">
+              La suite du chemin.
+            </h2>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+          <p class="text-white/70 leading-relaxed">
+            Je continue à apprendre au-delà de cette formation. Les prochaines
+            étapes de mon apprentissage se porteront sur TypeScript, Vue.js et
+            Angular afin d'élargir ma compréhension du front-end en plus de
+            React. Idéalement je souhaiterais trouver un poste de développeur
+            front-end avec une touche de back-end, et ainsi approfondir mes
+            connaissances auprès de développeurs expérimentés.
           </p>
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70">React</span>
-            <span class="px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70">React Router</span>
-            <span class="px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70">Sass</span>
-            <span class="px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70">Vite</span>
-          </div>
-          <div class="flex gap-3">
-            <button open-modal="kasa" class="bg-accent text-bg font-semibold text-sm px-4 py-2 rounded-full hover:opacity-90 transition-opacity">Description</button>
-            <a href="https://github.com/LudoCzd/Projet_5" target="_blank" rel="noopener" class="border border-white/20 text-white text-sm font-semibold px-4 py-2 rounded-full hover:border-accent transition-colors">GitHub</a>
-          </div>
-        </article>
-        <article class="bg-card border border-border rounded-2xl p-6 flex flex-col">
-          <div class="flex items-center justify-between mb-4">
-            <p class="text-xs text-white/50">02 — API back-end</p>
-            <span class="w-2 h-2 rounded-full bg-accent"></span>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">Mon Vieux Grimoire</h3>
-          <p class="text-sm text-white/70 mb-4 flex-1">
-            API sécurisée de notation de livres : authentification JWT, opérations CRUD complètes et modélisation MongoDB.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70">Node.js</span>
-            <span class="px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70">Express</span>
-            <span class="px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70">MongoDB</span>
-            <span class="px-3 py-1 rounded-full bg-bg border border-border text-xs text-white/70">JWT</span>
-          </div>
-          <div class="flex gap-3">
-            <button open-modal="grimoire" class="bg-accent text-bg font-semibold text-sm px-4 py-2 rounded-full hover:opacity-90 transition-opacity">Description</button>
-            <a href="https://github.com/LudoCzd/Projet_6" target="_blank" rel="noopener" class="border border-white/20 text-white text-sm font-semibold px-4 py-2 rounded-full hover:border-accent transition-colors">GitHub</a>
-          </div>
-        </article>
-      </div>
-    </section>
-    <section id="competences" class="max-w-5xl mx-auto px-6 py-20">
-      <div class="flex items-center gap-4 mb-10">
-        <div>
-          <!-- Fin section "Projets"   -->
-           <!-- Début section "Compétences" -->
-          <p class="text-xs font-semibold text-accent uppercase tracking-wide mb-2">03 — Compétences</p>
-          <h2 class="text-2xl md:text-3xl font-bold text-white">Les compétences que je maitrise.</h2>
-        </div>
-       </div>
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
-        <div class="bg-card border border-border rounded-xl p-5">
-          <h3 class="text-sm font-semibold text-accent mb-3">Langages</h3>
-          <ul class="text-sm text-white/70 space-y-1.5">
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>JavaScript</li>
-          </ul>
-        </div>
-        <div class="bg-card border border-border rounded-xl p-5">
-          <h3 class="text-sm font-semibold text-accent mb-3">Frameworks</h3>
-          <ul class="text-sm text-white/70 space-y-1.5">
-            <li>React</li>
-            <li>React Router</li>
-            <li>Sass</li>
-            <li>Tailwind CSS</li>
-          </ul>
-        </div>
-        <div class="bg-card border border-border rounded-xl p-5">
-          <h3 class="text-sm font-semibold text-accent mb-3">Backend</h3>
-          <ul class="text-sm text-white/70 space-y-1.5">
-            <li>Node.js</li>
-            <li>Express</li>
-            <li>MongoDB</li>
-          </ul>
-        </div>
-        <div class="bg-card border border-border rounded-xl p-5">
-          <h3 class="text-sm font-semibold text-accent mb-3">Outils</h3>
-          <ul class="text-sm text-white/70 space-y-1.5">
-            <li>Git</li>
-            <li>GitHub</li>
-            <li>Figma</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <!-- Fin section "Compétences"  -->
-     <!-- Début section "Perspectives" -->
-     <section id="perspectives" class="max-w-5xl mx-auto px-6 py-20">
-      <div class="flex items-center gap-4 mb-10">
-        <div>
-          <p class="text-xs font-semibold text-accent uppercase mb-2">04 — Perspectives</p>
-          <h2 class="text-2xl md:text-3xl font-bold text-white">La suite du chemin.</h2>
-        </div>
-      </div>
-      <div class="grid md:grid-cols-2 gap-10 items-start">
-        <p class="text-white/70 leading-relaxed">
-          Je continue à apprendre au-delà de cette formation. Les prochaines étapes de mon apprentissage se porteront sur TypeScript, Vue.js et Angular afin d'élargir ma compréhension du front-end en plus de React. Idéalement je souhaiterais trouver un poste de développeur front-end avec une touche de back-end, et ainsi approfondir mes connaissances auprès de développeurs expérimentés.</p>
           <div class="grid grid-cols-2 gap-4">
-           <div class="bg-card border border-border rounded-xl p-6">
-         <h3 class="text-sm font-semibold text-accent mb-4 ">Prochaines technologies</h3>
-          <div class="flex flex-wrap gap-5 ">
-            <span class="px-3 py-1.5 rounded-full border border-dashed border-accent/40 text-xs text-accent/80">TypeScript</span>
-            <span class="px-3 py-1.5 rounded-full border border-dashed border-accent/40 text-xs text-accent/80">Vue.js</span>
-            <span class="px-3 py-1.5 rounded-full border border-dashed border-accent/40 text-xs text-accent/80">Angular</span>
-          </div>
+            <div class="bg-card border border-border rounded-xl p-6">
+              <h3 class="text-sm font-semibold text-accent mb-4">
+                Prochaines technologies
+              </h3>
+              <div class="flex flex-wrap gap-5">
+                <span
+                  class="px-3 py-1.5 rounded-full border border-dashed border-accent/40 text-xs text-accent/80"
+                  >TypeScript</span
+                >
+                <span
+                  class="px-3 py-1.5 rounded-full border border-dashed border-accent/40 text-xs text-accent/80"
+                  >Vue.js</span
+                >
+                <span
+                  class="px-3 py-1.5 rounded-full border border-dashed border-accent/40 text-xs text-accent/80"
+                  >Angular</span
+                >
+              </div>
+            </div>
           </div>
         </div>
-      </div>
       </section>
       <!-- Fin section "Perspectives" -->
-       <!-- Début section "Contact" -->
+      <!-- Début section "Contact" -->
       <section id="contact" class="max-w-5xl mx-auto px-6 py-20">
         <div class="flex items-center gap-4 mb-10">
           <div>
@@ -250,12 +429,11 @@
         </div>
 
         <p class="text-white/70 mb-8 max-w-2xl">
-          Une opportunité, un projet, une question? Vous pouvez me contacter via le formulaire ci-dessous.
+          Une opportunité, un projet, une question? Vous pouvez me contacter via
+          le formulaire ci-dessous.
         </p>
         <form
-          action="mailto:ludovic.cazade@gmail.com"
-          method="post"
-          enctype="text/plain"
+          id="contact-form"
           class="bg-card border border-border rounded-2xl p-6 md:p-8 space-y-5"
         >
           <div>
@@ -311,33 +489,91 @@
         </form>
       </section>
       <!-- Fin section "Contact" -->
-       <div id="modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-  <div id="modal-backdrop" class="absolute inset-0 bg-black/70"></div>
-  <div class="relative bg-card border border-border rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
-    <div class="p-6">
-      <div class="flex justify-between items-start mb-2">
-        <p id="modal-category" class="text-xs font-semibold text-accent uppercase tracking-wide"></p>
-        <button id="modal-close" class="text-white/60 hover:text-white" aria-label="Fermer la fenêtre">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+      <div
+        id="modal"
+        class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <div id="modal-backdrop" class="absolute inset-0 bg-black/70"></div>
+        <div
+          class="relative bg-card border border-border rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+        >
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <p
+                id="modal-category"
+                class="text-xs font-semibold text-accent uppercase tracking-wide"
+              ></p>
+              <button
+                id="modal-close"
+                class="text-white/60 hover:text-white"
+                aria-label="Fermer la fenêtre"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+            <h3 id="modal-title" class="text-xl font-bold text-white mb-2"></h3>
+            <p id="modal-description" class="text-sm text-white/70 mb-4"></p>
+            <div
+              class="relative rounded-lg overflow-hidden bg-bg border border-border h-64 md:h-96 flex items-center justify-center mb-3"
+            >
+              <p
+                id="modal-image-placeholder"
+                class="text-white/40 text-sm px-6 text-center"
+              ></p>
+              <img
+                id="modal-image"
+                src=""
+                alt=""
+                class="hidden w-full h-full object-cover absolute inset-0"
+              />
+              <span
+                id="modal-counter"
+                class="absolute top-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded-full"
+              ></span>
+              <button
+                id="modal-prev"
+                class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white rounded-full w-8 h-8 flex items-center justify-center"
+                aria-label="Image précédente"
+              >
+                ‹
+              </button>
+              <button
+                id="modal-next"
+                class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white rounded-full w-8 h-8 flex items-center justify-center"
+                aria-label="Image suivante"
+              >
+                ›
+              </button>
+            </div>
+            <p id="modal-caption" class="text-xs text-white/60 mb-4"></p>
+            <div id="modal-tags" class="flex flex-wrap gap-2 mb-5"></div>
+            <a
+              id="modal-github"
+              href="#"
+              target="_blank"
+              rel="noopener"
+              class="inline-block bg-accent text-bg font-semibold px-4 py-2 rounded-full text-sm hover:opacity-90 transition-opacity"
+              >Voir sur GitHub →</a
+            >
+          </div>
+        </div>
       </div>
-      <h3 id="modal-title" class="text-xl font-bold text-white mb-2"></h3>
-      <p id="modal-description" class="text-sm text-white/70 mb-4"></p>
-      <div class="relative rounded-lg overflow-hidden bg-bg border border-border h-64 md:h-96 flex items-center justify-center mb-3 ">
-        <p id="modal-image-placeholder" class="text-white/40 text-sm px-6 text-center"></p>
-        <img id="modal-image" src="" alt="" class="hidden w-full h-full object-cover absolute inset-0" />
-        <span id="modal-counter" class="absolute top-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded-full"></span>
-        <button id="modal-prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white rounded-full w-8 h-8 flex items-center justify-center" aria-label="Image précédente">‹</button>
-        <button id="modal-next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white rounded-full w-8 h-8 flex items-center justify-center" aria-label="Image suivante">›</button>
-      </div>
-      <p id="modal-caption" class="text-xs text-white/60 mb-4"></p>
-      <div id="modal-tags" class="flex flex-wrap gap-2 mb-5"></div>
-      <a id="modal-github" href="#" target="_blank" rel="noopener" class="inline-block bg-accent text-bg font-semibold px-4 py-2 rounded-full text-sm hover:opacity-90 transition-opacity">Voir sur GitHub →</a>
-    </div>
-  </div>
-</div>
     </main>
-</body>
+  </body>
 </html>

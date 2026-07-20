@@ -138,3 +138,22 @@ modalClose.addEventListener('click', () => {
 modalBackdrop.addEventListener('click', () => {
   closeModal();
 });
+
+const contactForm = document.getElementById('contact-form');
+
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  emailjs
+    .sendForm('service_4qonvk9', 'template_mli0e09', contactForm)
+    .then(() => {
+      contactForm.reset();
+      alert('Message envoyé');
+    })
+    .catch((error) => {
+      console.error('Erreur EmailJS :', error);
+      alert(
+        'Une erreur est survenue, merci de réessayer ou de me contacter directement par email (ludovic.cazade@gmail.com).',
+      );
+    });
+});
